@@ -1,0 +1,19 @@
+@use "../../sass/index" as *;
+
+.loading {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  h2 {
+    font-size: 2.25rem;
+    letter-spacing: 5px;
+    font-weight: 200;
+    font-style: italic;
+  }
+}

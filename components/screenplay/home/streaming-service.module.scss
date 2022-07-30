@@ -1,0 +1,16 @@
+@use "../../../sass/index" as *;
+
+.streaming-service {
+  width: 3rem;
+  opacity: 0.25;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  img {
+    border-radius: 0.5rem;
+  }
+}

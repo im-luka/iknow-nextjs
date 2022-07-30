@@ -1,0 +1,60 @@
+@use "../../../sass/index" as *;
+
+.features__container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 3rem 10rem 3rem;
+
+  &__image {
+    width: 45%;
+  }
+
+  &__content {
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    span {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: $color-light-blue;
+      text-shadow: 2px 2px 7px $color-light-blue;
+    }
+
+    h1 {
+      text-transform: capitalize;
+      font-weight: 600;
+      font-size: 2.25rem;
+    }
+
+    p {
+      opacity: 0.75;
+    }
+  }
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    &__image {
+      width: 75%;
+    }
+
+    &__content {
+      max-width: 100%;
+      text-align: center;
+      order: 1;
+    }
+  }
+
+  @include mobile {
+    &__image {
+      width: 100%;
+    }
+  }
+}

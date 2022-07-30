@@ -1,0 +1,46 @@
+@use "../../../sass/index" as *;
+
+.actors {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      &__image {
+        min-width: 5rem;
+        max-width: 5rem;
+        min-height: 5rem;
+        max-height: 5rem;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        border: 1px solid $color-black;
+        border-radius: 100%;
+
+        filter: grayscale(0.75);
+      }
+
+      p {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

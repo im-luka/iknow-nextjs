@@ -1,0 +1,122 @@
+@use "../../../sass/index" as *;
+
+.active.info__container {
+  transform: translateY(-10px);
+}
+
+.info__container {
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 0;
+  width: 95%;
+  height: 20rem;
+  margin-left: -47.5%;
+
+  transform: translateY(200px);
+  transition: transform 1s ease;
+
+  background: rgb(37, 37, 37);
+  background: linear-gradient(
+    90deg,
+    rgba(42, 42, 42, 1) 0%,
+    rgba(24, 24, 24, 1) 30%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border-radius: 0.25rem;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  &__content {
+    padding: 1rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 1rem;
+
+    &__img {
+      height: 100%;
+
+      img {
+        object-fit: contain;
+        height: 100%;
+        border-radius: 1rem;
+      }
+    }
+
+    &__info {
+      flex: 1;
+      padding: 1rem;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-evenly;
+
+      p {
+        font-size: 0.95rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      &__actions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      @include mobile {
+        h2 {
+          font-size: 1.5rem;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        p {
+          display: none;
+        }
+
+        &__actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    min-width: 35%;
+
+    background: url("../../../public/images/screenplay/home/bg-tiles.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: 0.75;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -25px;
+      top: 0;
+      height: 100%;
+      width: 50px;
+      background: #0f0f0f;
+      filter: blur(10px);
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

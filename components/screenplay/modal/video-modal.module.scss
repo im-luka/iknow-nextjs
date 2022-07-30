@@ -1,0 +1,41 @@
+@use "../../../sass/index" as *;
+
+.video__container {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.75);
+
+  &__modal {
+    width: 50vw;
+    height: 50vh;
+
+    position: absolute;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%) scale(0);
+    animation: slide-modal forwards 0.5s linear;
+
+    padding: 1rem;
+    background-color: black;
+    box-shadow: $box-shadow;
+    border-radius: 1rem;
+
+    @include tablet {
+      width: 85vw;
+    }
+  }
+
+  @keyframes slide-modal {
+    50% {
+      transform: translate(-50%, -100%) scale(0.5);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
