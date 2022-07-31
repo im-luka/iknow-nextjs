@@ -43,15 +43,14 @@ const Navbar = () => {
             <Link href="/screenplay/discovery">Discovery</Link>
           </li>
           <li>
-            <Link href="screenplay/movies">Movies</Link>
+            <Link href="/screenplay/movie">Movies</Link>
           </li>
           <li>
-            <Link href="screenplay/tv">TV Shows</Link>
+            <Link href="/screenplay/tv">TV Shows</Link>
           </li>
         </ul>
 
         <div className={styles.navbar__search}>
-          {/* <input type="text" placeholder="search movies..." /> */}
           <NavbarSearch />
         </div>
 

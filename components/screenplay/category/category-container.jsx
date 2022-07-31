@@ -1,0 +1,115 @@
+import { useState, useRef, useEffect } from "react";
+import styles from "./category-container.module.scss";
+import years from "../../../data/years";
+import MovieListItem from "../discovery/movie-list-item";
+import { screenplayApiConfig } from "../../../api/apiConfig";
+import { screenplayAxiosClient } from "../../../api/axiosClient";
+import { screenplayApiCalls } from "../../../api/requestsApi";
+import { useRouter } from "next/router";
+import { MovieType, TvType } from "../../../models/screenplay";
+import Loading from "../../loading/loading";
+
+const CategoryContainer = () => {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  const yearRef = useRef(null);
+  const adultRef = useRef(null);
+  const {
+    query: { category },
+  } = useRouter();
+
+  useEffect(() => {
+    const sendRequest = async () => {
+      setLoading(true);
+
+      try {
+        let request;
+        if (category === "movie") {
+          request = screenplayApiCalls.getMovies(MovieType.TopRated, {
+            params: { page },
+          });
+        } else {
+          request = screenplayApiCalls.getTvShows(TvType.Popular, {
+            params: { page },
+          });
+        }
+
+        const response = await screenplayAxiosClient.get(
+          request.url,
+          request.params
+        );
+
+        setMovies(response.data.results.slice(0, 20));
+        setTotalPages(response.data.total_pages);
+      } catch (error) {
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    sendRequest();
+  }, [category]);
+
+  const loadMoreHandler = () => {
+    setPage((prevstate) => prevstate + 1);
+  };
+
+  console.log(page);
+
+  return (
+    <div className={styles.grid}>
+      <div className={styles.grid__header}>
+        <h2>Want To Find Something Specific?</h2>
+        <div className={styles.grid__header__search}>
+          <input type="text" placeholder="search..." />
+        </div>
+
+        <div className={styles.grid__header__filter}>
+          <div className={styles.grid__header__filter__year}>
+            <label htmlFor="year">Year : </label>
+            <select ref={yearRef} id="year">
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className={styles.grid__header__filter__adult}>
+            <input ref={adultRef} type="checkbox" id="adult" />
+            <label htmlFor="adult">Include Adult Movies</label>
+          </div>
+
+          <div className={styles.grid__header__filter__action}>
+            <button
+              className="button button-primary"
+              // onClick={searchFilteredHandler}
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.grid__container}>
+        {movies.map((movie, index) => (
+          <MovieListItem key={index} movie={movie} category={category} />
+        ))}
+      </div>
+
+      {page < totalPages && (
+        <div className={styles.grid__more}>
+          <button className="button button-secondary" onClick={loadMoreHandler}>
+            Load More
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default CategoryContainer;

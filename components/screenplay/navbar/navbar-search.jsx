@@ -21,8 +21,6 @@ const NavbarSearch = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  console.log(movies);
-
   useEffect(() => {
     const sendRequest = async () => {
       setLoading(true);
@@ -35,8 +33,6 @@ const NavbarSearch = () => {
           request.url,
           request.params
         );
-
-        console.log(response);
 
         setMovies(
           response.data.results
