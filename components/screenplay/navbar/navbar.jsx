@@ -2,9 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./navbar.module.scss";
 import { BsSuitHeartFill } from "react-icons/bs";
+import { useFavorites } from "../../../context/favorites-context";
+import FavoritesModal from "../modal/favorites-modal";
 
 const Navbar = () => {
   const [shouldShrink, setShouldShrink] = useState(false);
+  const { isFavoritesModalShown, showFavorites } = useFavorites();
 
   useEffect(() => {
     const resizeNavbar = () => {
@@ -51,12 +54,17 @@ const Navbar = () => {
           {/* <NavbarSearch /> */}
         </div>
 
-        <div className={styles.navbar__favorite}>
+        <div
+          className={styles.navbar__favorite}
+          onClick={() => showFavorites()}
+        >
           <span>
             <BsSuitHeartFill size="2rem" color="red" /> Favorites
           </span>
         </div>
       </nav>
+
+      {isFavoritesModalShown && <FavoritesModal />}
     </header>
   );
 };

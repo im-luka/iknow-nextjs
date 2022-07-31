@@ -30,7 +30,11 @@
   }
 
   @include tablet {
-    padding: 12rem 0;
+    padding: 20rem 0;
+  }
+
+  @include mobile {
+    padding: 15rem 0;
   }
 
   &__content {
