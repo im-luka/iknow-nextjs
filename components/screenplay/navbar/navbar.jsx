@@ -4,6 +4,7 @@ import styles from "./navbar.module.scss";
 import { BsSuitHeartFill } from "react-icons/bs";
 import { useFavorites } from "../../../context/favorites-context";
 import FavoritesModal from "../modal/favorites-modal";
+import NavbarSearch from "./navbar-search";
 
 const Navbar = () => {
   const [shouldShrink, setShouldShrink] = useState(false);
@@ -50,8 +51,8 @@ const Navbar = () => {
         </ul>
 
         <div className={styles.navbar__search}>
-          <input type="text" placeholder="search movies..." />
-          {/* <NavbarSearch /> */}
+          {/* <input type="text" placeholder="search movies..." /> */}
+          <NavbarSearch />
         </div>
 
         <div

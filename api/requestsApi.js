@@ -42,4 +42,10 @@ export const screenplayApiCalls = {
 
     return { url, params };
   },
+
+  getSearch: (category, params) => {
+    const url = "search/" + category;
+
+    return { url, params };
+  },
 };
