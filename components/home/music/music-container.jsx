@@ -1,46 +1,18 @@
 import styles from "./music-container.module.scss";
-import {
-  SiSpotify,
-  SiDeezer,
-  SiApple,
-  SiYoutubemusic,
-  SiStarz,
-} from "react-icons/si";
-
-const CircleInfo = () => {
-  return (
-    <div className={styles.circle}>
-      <div className={styles.circle__container}>
-        <svg viewBox="0 0 100 100" width="100" height="100">
-          <defs>
-            <path
-              id="circle"
-              d="
-                M 50, 50
-                m-37, 0
-                a 37,37 0 1,1 74,0
-                a 37,37 0 1,1 -74,0"
-            />
-          </defs>
-          <text fontSize="16">
-            <textPath xlinkHref="#circle">
-              We are the best f*ck the rest
-            </textPath>
-          </text>
-        </svg>
-      </div>
-
-      <div className={styles.circle__container__content}>
-        <SiStarz />
-      </div>
-    </div>
-  );
-};
+import { SiSpotify, SiDeezer, SiApple, SiYoutubemusic } from "react-icons/si";
+import CircleMenu from "../../ui/circle-menu";
+import { useRouter } from "next/router";
 
 const MusicContainer = () => {
+  const router = useRouter();
+
+  const goToMusicPageHandler = () => {
+    router.push("/music");
+  };
+
   return (
     <>
-      <section className={styles.music}>
+      <section id="music" className={styles.music}>
         <div className={styles.aligner}>
           <h2 className={styles.outline}>We are the best f*ck the rest</h2>
         </div>
@@ -56,8 +28,16 @@ const MusicContainer = () => {
             </p>
 
             <div className={styles.music__container__info__actions}>
-              <button className="button button-primary">Get Started</button>
-              <button className="button button-secondary">
+              <button
+                className="button button-primary"
+                onClick={goToMusicPageHandler}
+              >
+                Get Started
+              </button>
+              <button
+                className="button button-secondary"
+                onClick={goToMusicPageHandler}
+              >
                 See Our Features
               </button>
             </div>
@@ -85,7 +65,7 @@ const MusicContainer = () => {
               alt="Musician performing on the stage"
             />
 
-            <CircleInfo />
+            <CircleMenu />
           </div>
         </div>
       </section>

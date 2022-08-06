@@ -1,9 +1,16 @@
+import { useRouter } from "next/router";
 import styles from "./screenplay-container.module.scss";
 import { BsCameraReelsFill } from "react-icons/bs";
 
 const ScreenplayContainer = () => {
+  const router = useRouter();
+
+  const goToScreenplayPageHandler = () => {
+    router.push("/screenplay");
+  };
+
   return (
-    <section className={styles.screenplay}>
+    <section id="screenplay" className={styles.screenplay}>
       <div className={styles.screenplay__cover}>
         <div className={styles.aligner}>
           <h2 className={styles.outline}>We are the best f*ck the rest</h2>
@@ -42,7 +49,12 @@ const ScreenplayContainer = () => {
       <div className={styles.screenplay__content}>
         <div className={styles.screenplay__content__actions}>
           <h3>Start Today</h3>
-          <button className="button button-primary">Get Started</button>
+          <button
+            className="button button-primary"
+            onClick={goToScreenplayPageHandler}
+          >
+            Get Started
+          </button>
         </div>
 
         <div className={styles.screenplay__content__container}>

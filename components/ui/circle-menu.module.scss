@@ -1,0 +1,206 @@
+@use "../../sass/index" as *;
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(to right, $color-dark-blue, #000 90%);
+  transition: width 1s ease;
+  z-index: 999;
+
+  &.active {
+    width: 100%;
+
+    .nav {
+      &__main,
+      &__icons {
+        opacity: 1;
+      }
+    }
+  }
+
+  .nav {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    &__main,
+    &__icons {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      transition-delay: 1s;
+    }
+
+    &__main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5rem;
+
+      &__item {
+        font-size: 2.5rem;
+        cursor: pointer;
+        font-weight: 500;
+        padding: 0.5rem;
+        transition: all 0.35s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          width: 0;
+          right: 0;
+          height: 2px;
+          background: $color-light-blue;
+          transition: width 0.35s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+
+      &__item:nth-child(odd):hover {
+        transform: rotate(-5deg);
+        color: $color-light-blue;
+
+        &::after {
+          left: 0;
+        }
+      }
+      &__item:nth-child(even):hover {
+        transform: rotate(5deg);
+        color: $color-light-blue;
+      }
+    }
+
+    &__icons {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 4rem;
+
+      &__item {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+
+        font-size: 1.75rem;
+        cursor: pointer;
+        transition: all 0.1s linear;
+
+        &:first-child:hover {
+          transform: rotate(1deg);
+        }
+        &:last-child:hover {
+          transform: rotate(-1deg);
+        }
+
+        svg {
+          transition: color 1s ease;
+        }
+
+        &:hover svg {
+          animation: scale-icon 1.5s infinite linear;
+          color: $color-red;
+        }
+
+        svg {
+          color: $color-light-blue;
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scale-icon {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.circle {
+  position: absolute;
+  z-index: 9999;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+
+  background-color: rgba($color: $color-dark-blue, $alpha: 0.8);
+  padding: 1rem;
+  border-radius: 100%;
+  cursor: pointer;
+
+  &.low {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    top: auto;
+    left: auto;
+    transform: translate(0);
+
+    @include tablet {
+      right: 20px;
+      bottom: 65px;
+    }
+  }
+
+  &__container {
+    position: relative;
+
+    svg {
+      fill: currentColor;
+      height: auto;
+      max-width: 66vmin;
+      transform-origin: center;
+      width: 100%;
+    }
+
+    animation: rotate-circle 15s infinite linear;
+
+    &__content {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      svg {
+        font-size: 3.5rem;
+
+        @include mobile {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@keyframes rotate-circle {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

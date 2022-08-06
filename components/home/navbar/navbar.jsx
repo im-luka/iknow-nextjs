@@ -35,10 +35,10 @@ const Navbar = () => {
 
         <ul className={styles.navbar__list}>
           <li>
-            <Link href="/music">Music</Link>
+            <Link href="#music">Music</Link>
           </li>
           <li>
-            <Link href="/screenplay">Movies & TV Shows</Link>
+            <Link href="#screenplay">Movies & TV Shows</Link>
           </li>
         </ul>
       </nav>
