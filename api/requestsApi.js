@@ -48,4 +48,10 @@ export const screenplayApiCalls = {
 
     return { url, params };
   },
+
+  getDiscover: (category, params) => {
+    const url = "discover/" + category;
+
+    return { url, params };
+  },
 };

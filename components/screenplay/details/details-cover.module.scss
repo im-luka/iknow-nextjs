@@ -36,9 +36,10 @@
   }
 
   &__container {
+    width: 90%;
     position: relative;
     z-index: 100;
-    padding: 5rem;
+    padding-bottom: 7rem;
 
     display: flex;
     justify-content: space-around;
@@ -88,7 +89,7 @@
 
           &__numbers {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.25rem;
 
             p {
@@ -148,10 +149,11 @@
     &__container {
       width: 100%;
       padding-inline: 10px;
+      padding-bottom: 0;
     }
   }
 
   @media (max-width: 375px) {
-    height: 135vh;
+    height: 120vh;
   }
 }

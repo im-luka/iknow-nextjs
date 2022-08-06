@@ -27,6 +27,7 @@
 }
 
 html {
+  min-height: 150vh;
   font-size: 100%;
 
   @include tablet {
@@ -94,6 +95,11 @@ select {
 .button-primary:hover {
   background: $color-red;
 }
+.button-alternate {
+  background: $color-black;
+  color: $color-white;
+  border: 1px solid $color-white;
+}
 
 .button-secondary {
   background: transparent;
@@ -101,6 +107,10 @@ select {
   border: 1px solid $color-white;
 }
 .button-secondary:hover {
+  background: $color-white;
+  color: $color-black;
+}
+.button-alternate:hover {
   background: $color-white;
   color: $color-black;
 }

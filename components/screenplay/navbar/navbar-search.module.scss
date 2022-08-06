@@ -27,7 +27,7 @@
     min-width: 40rem;
     width: 180%;
     transform: translateX(-30%);
-    padding: 3rem 1rem;
+    padding: 3rem 2rem;
     background-color: $color-dark-blue;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     border-radius: 0.5rem;
@@ -50,10 +50,9 @@
       gap: 1rem;
 
       margin-block: 0.5rem;
-      padding: 0.15rem;
+      padding: 0.15rem 1rem;
       border-radius: 0.5rem;
-      border-top: 1px solid $color-white;
-      border-bottom: 1px solid $color-white;
+      border: 3px solid $color-black;
 
       opacity: 0;
       animation: item-show 2s forwards linear;
@@ -83,6 +82,12 @@
         h3 {
           font-size: 1.25rem;
         }
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: $color-black;
+        border-color: $color-white;
       }
     }
   }

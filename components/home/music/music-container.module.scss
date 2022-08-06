@@ -1,0 +1,268 @@
+@use "../../../sass/index" as *;
+
+.music {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  background: url("../../../public/images/home/dark-bg-music.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba($color: #000000, $alpha: 0.75);
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .aligner {
+    transform: rotate(90deg);
+    width: 100vh;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    z-index: 10;
+    right: 50px;
+    bottom: -40px;
+    transform-origin: right;
+    background-color: rgba($color: $color-black, $alpha: 0.75);
+
+    .outline {
+      text-transform: uppercase;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &__info {
+      width: 50%;
+      padding: 5rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+
+      h1 {
+        text-transform: capitalize;
+        font-size: 3rem;
+        font-weight: 600;
+        font-style: italic;
+        letter-spacing: 2px;
+      }
+
+      p {
+        opacity: 0.9;
+      }
+
+      @include mobile {
+        h1,
+        p {
+          text-align: center;
+        }
+      }
+
+      &__actions {
+        display: flex;
+        gap: 1rem;
+
+        button {
+          border-radius: 0;
+          padding: 0.5rem 3rem;
+        }
+      }
+
+      &__stats {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 5rem;
+
+        &__item {
+          margin-top: 3rem;
+          max-width: 20rem;
+
+          h3 {
+            font-weight: 600;
+
+            span {
+              color: $color-blue;
+            }
+          }
+
+          @include mobile {
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+
+    &__image {
+      position: relative;
+      width: 50%;
+
+      img {
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+
+  @include tablet {
+    height: 75vh;
+  }
+
+  @media screen and (max-width: 850px) {
+    height: auto;
+
+    &__container {
+      flex-direction: column;
+
+      &__info {
+        margin-top: 2rem;
+        width: 100%;
+        padding-inline: 1rem;
+        align-items: center;
+
+        p {
+          max-width: 50rem;
+        }
+
+        &__stats {
+          gap: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.providers {
+  background-color: rgba($color: $color-blue, $alpha: 1);
+  min-height: 8rem;
+
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    position: relative;
+    z-index: 10;
+    width: 99%;
+    background-color: $color-dark-blue;
+    border: 1px solid $color-white;
+    transform: rotate(-2deg);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+
+      svg {
+        font-size: 2rem;
+        color: $color-light-blue;
+      }
+      h3 {
+        font-size: 1.5rem;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  @include mobile {
+    &__container {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+  .outline {
+    -webkit-text-stroke: 1px black;
+  }
+}
+
+.circle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+
+  background-color: rgba($color: $color-dark-blue, $alpha: 0.8);
+  padding: 1rem;
+  border-radius: 100%;
+
+  &__container {
+    position: relative;
+
+    svg {
+      fill: currentColor;
+      height: auto;
+      max-width: 66vmin;
+      transform-origin: center;
+      width: 100%;
+    }
+
+    animation: rotate-circle 15s infinite linear;
+
+    &__content {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      svg {
+        font-size: 3.5rem;
+
+        @include mobile {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+@keyframes rotate-circle {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

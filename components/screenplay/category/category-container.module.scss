@@ -1,5 +1,11 @@
 @use "../../../sass/index" as *;
 
+.nocontent {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
 .grid {
   width: 90%;
   margin: 0 auto;
@@ -16,6 +22,15 @@
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+
+    &__genres {
+      &__actions {
+        display: flex;
+        gap: 1rem;
+      }
+
+      margin-bottom: 1rem;
+    }
 
     &__search {
       min-width: 35rem;

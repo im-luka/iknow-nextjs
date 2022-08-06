@@ -40,9 +40,10 @@
 
     &__img {
       height: 100%;
+      min-width: 192px;
 
       img {
-        object-fit: contain;
+        object-fit: cover;
         height: 100%;
         border-radius: 1rem;
       }

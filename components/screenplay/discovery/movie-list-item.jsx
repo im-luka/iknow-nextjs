@@ -5,9 +5,12 @@ import styles from "./movie-list-item.module.scss";
 const MovieListItem = ({ movie, category }) => {
   const { showModal } = useModalInfo();
 
-  const posterImage = screenplayApiConfig.posterImage(
+  let posterImage = screenplayApiConfig.posterImage(
     movie.poster_path || movie.backdrop_path
   );
+  posterImage = posterImage.includes("null")
+    ? "/images/error/no-image.jpg"
+    : posterImage;
 
   const showModalHandler = () => {
     showModal({
@@ -23,7 +26,9 @@ const MovieListItem = ({ movie, category }) => {
   return (
     <div
       className={styles["movie-item"]}
-      style={{ backgroundImage: `url(${posterImage})` }}
+      style={{
+        backgroundImage: `url(${posterImage})`,
+      }}
       onClick={showModalHandler}
     >
       <h3 className={styles["movie-item__title"]}>

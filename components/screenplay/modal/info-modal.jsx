@@ -11,6 +11,11 @@ const InfoModal = () => {
   const { item, closeModal } = useModalInfo();
   const router = useRouter();
 
+  let posterImage = screenplayApiConfig.posterImage(item.poster_path);
+  posterImage = posterImage.includes("null")
+    ? "/images/error/no-image.jpg"
+    : posterImage;
+
   useEffect(() => {
     const addAnimation = setTimeout(() => {
       modalRef.current.classList.add(styles.active);
@@ -30,10 +35,7 @@ const InfoModal = () => {
     <div ref={modalRef} className={styles.info__container}>
       <div className={styles.info__container__content}>
         <div className={styles.info__container__content__img}>
-          <img
-            src={`${screenplayApiConfig.posterImage(item.poster_path)}`}
-            alt={item.title}
-          />
+          <img src={posterImage} alt={item.title} />
         </div>
 
         <div className={styles.info__container__content__info}>
