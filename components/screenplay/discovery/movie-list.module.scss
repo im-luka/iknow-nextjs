@@ -4,14 +4,14 @@
   margin-bottom: 5rem;
 
   .swiper-slide {
-    width: 20%;
+    width: 18%;
 
     @include tablet {
-      width: 30%;
+      width: 26%;
     }
 
     @include mobile {
-      width: 40%;
+      width: 35%;
     }
   }
 }
