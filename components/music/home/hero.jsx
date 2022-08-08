@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import styles from "./hero.module.scss";
 
 const Hero = () => {
+  const router = useRouter();
+
   return (
     <section className={styles.hero}>
       <div className={styles.hero__image}>
@@ -17,7 +20,12 @@ const Hero = () => {
           players, and the venues.
         </p>
         <div className={styles.hero__content__actions}>
-          <button className="button button-primary">Play Music</button>
+          <button
+            className="button button-primary"
+            onClick={() => router.push("/music/4you")}
+          >
+            Play Music
+          </button>
         </div>
       </div>
     </section>

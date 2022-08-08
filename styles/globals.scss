@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .navbar-icon {
+    @apply text-2xl opacity-50 cursor-pointer transition duration-500 hover:scale-125;
+  }
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 ::-webkit-scrollbar {

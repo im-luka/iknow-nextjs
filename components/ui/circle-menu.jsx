@@ -55,7 +55,7 @@ const Menu = ({ onClose }) => {
         <div className={styles.nav__icons}>
           <div
             className={styles.nav__icons__item}
-            onClick={navigationHandler.bind(null, "/music/play")}
+            onClick={navigationHandler.bind(null, "/music/4you")}
           >
             <FaMusic />
             Play Music

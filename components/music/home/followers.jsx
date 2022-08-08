@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import styles from "./followers.module.scss";
 
 const Followers = () => {
+  const router = useRouter();
+
   return (
     <>
       <section className={`${styles.followers} ${styles.item1}`}>
@@ -49,7 +52,12 @@ const Followers = () => {
           </div>
 
           <div className={styles.followers__content__actions}>
-            <button className="button">I&apos;m a Dreamer</button>
+            <button
+              className="button"
+              onClick={() => router.push("/music/4you")}
+            >
+              I&apos;m a Dreamer
+            </button>
           </div>
         </div>
 
