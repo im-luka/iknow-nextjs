@@ -1,8 +1,24 @@
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import React from "react";
 import MainContent from "../../../components/music/4you/main-content";
 import MusicContainer from "../../../components/music/utils/music-container";
 
 const ForYouPage = () => {
+  const router = useRouter();
+
+  const { data: session, status } = useSession({
+    onUnauthenticated: () => {
+      router.replace("/auth/login");
+    },
+  });
+
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  console.log(session);
+
   return (
     <MusicContainer>
       <MainContent />
