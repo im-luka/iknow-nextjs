@@ -8,10 +8,13 @@ const ForYouPage = () => {
   const router = useRouter();
 
   const { data: session, status } = useSession({
+    required: true,
     onUnauthenticated: () => {
       router.replace("/auth/login");
     },
   });
+
+  console.log(session, status);
 
   if (status === "loading") {
     return <p>Loading...</p>;

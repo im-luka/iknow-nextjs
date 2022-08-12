@@ -6,9 +6,11 @@ import FeaturedList from "./featured-list";
 import { spotifyApi } from "../../../api/apiConfig";
 
 const MainContent = () => {
-  const {
-    data: { accessToken },
-  } = useSession();
+  const { data: session } = useSession();
+  const accessToken = session?.accessToken;
+  // const {
+  //   data: { accessToken },
+  // } = useSession();
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [featuredMusic, setFeaturedMusic] = useState([]);
@@ -64,6 +66,8 @@ const MainContent = () => {
         featuredMusic={featuredMusic}
         searchedMusic={searchResults}
       />
+
+      <div className="flex gap-x-8 absolute min-w-full md:relative ml-6"></div>
     </section>
   );
 };
