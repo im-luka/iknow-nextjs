@@ -50,9 +50,6 @@ export default NextAuth({
         "https://accounts.spotify.com/authorize?scope=user-read-email,playlist-read-private,user-read-email,streaming,user-read-private,user-library-read,user-library-modify,user-read-playback-state,user-modify-playback-state,user-read-recently-played,user-follow-read",
     }),
   ],
-  pages: {
-    signIn: "/auth/login",
-  },
   callbacks: {
     async jwt({ token, user, account }) {
       // Initial sign in
