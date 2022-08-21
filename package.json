@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.6",
     "@reduxjs/toolkit": "^1.8.4",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "lyrics-finder": "^21.7.0",
+    "music-lyrics": "^2.0.2",
     "next": "12.2.3",
     "next-auth": "^4.10.3",
     "query-string": "^7.1.1",
@@ -30,6 +33,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "autoprefixer": "^10.4.8",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.3",

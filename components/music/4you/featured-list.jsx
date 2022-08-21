@@ -2,10 +2,10 @@ import FeaturedListItem from "./featured-list-item";
 
 const FeaturedList = ({ featuredMusic, searchedMusic }) => {
   return (
-    <div className="grid overflow-y-scroll scrollbar-hide h-96 p-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="h-[420px] p-3 flex justify-around items-start flex-wrap gap-4 overflow-y-scroll scrollbar-hide">
       {searchedMusic.length === 0
         ? featuredMusic
-            .slice(0, 4)
+            .slice(0, 12)
             .map((track) => (
               <FeaturedListItem
                 key={track.id}
@@ -14,7 +14,7 @@ const FeaturedList = ({ featuredMusic, searchedMusic }) => {
               />
             ))
         : searchedMusic
-            .slice(0, 4)
+            .slice(0, 12)
             .map((track) => (
               <FeaturedListItem
                 key={track.id}

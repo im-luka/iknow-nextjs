@@ -4,13 +4,13 @@ import Search from "../utils/search";
 import { useState } from "react";
 import FeaturedList from "./featured-list";
 import { spotifyApi } from "../../../api/apiConfig";
+import Tabs from "./tabs";
+import GridArtists from "./grid-artists";
+import GridAlbums from "./grid-albums";
 
 const MainContent = () => {
   const { data: session } = useSession();
   const accessToken = session?.accessToken;
-  // const {
-  //   data: { accessToken },
-  // } = useSession();
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [featuredMusic, setFeaturedMusic] = useState([]);
@@ -67,7 +67,16 @@ const MainContent = () => {
         searchedMusic={searchResults}
       />
 
-      <div className="flex gap-x-8 absolute min-w-full md:relative ml-6"></div>
+      <div className="flex flex-wrap justify-between gap-12 mt-8 items-start min-w-full">
+        <div>
+          <Tabs />
+        </div>
+
+        <div className="flex gap-12">
+          <GridArtists />
+          <GridAlbums />
+        </div>
+      </div>
     </section>
   );
 };

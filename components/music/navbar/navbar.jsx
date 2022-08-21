@@ -2,6 +2,7 @@ import { AiFillHome } from "react-icons/ai";
 import { GiMicrophone } from "react-icons/gi";
 import { RiAlbumFill } from "react-icons/ri";
 import { BsMusicNoteList, BsThreeDots, BsSpotify } from "react-icons/bs";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -16,10 +17,14 @@ const Navbar = () => {
           <AiFillHome className="navbar-icon opacity-100" />
         </div>
         <div>
-          <BsMusicNoteList className="navbar-icon" />
+          <Link href="/music/4you/playlists">
+            <BsMusicNoteList className="navbar-icon" />
+          </Link>
         </div>
         <div>
-          <GiMicrophone className="navbar-icon" />
+          <Link href="/music/4you/artists">
+            <GiMicrophone className="navbar-icon" />
+          </Link>
         </div>
         <div>
           <RiAlbumFill className="navbar-icon" />

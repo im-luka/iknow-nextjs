@@ -2,6 +2,7 @@ import Head from "next/head";
 import { getProviders, useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Loader from "../../components/music/loader/loader";
 
 const SignInPage = ({ providers }) => {
   const { data: session, status } = useSession();
@@ -14,7 +15,7 @@ const SignInPage = ({ providers }) => {
   }, [session]);
 
   if (session) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   return (

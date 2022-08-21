@@ -1,13 +1,13 @@
 import { useSession, signOut } from "next-auth/react";
+import ProfileMenu from "./profile-menu";
+import RecentlyPlayed from "./recently-played";
 
 const Features = () => {
   return (
-    <button
-      className="px-4 py-1 border-none bg-custom-blue text-custom-white"
-      onClick={() => signOut({redirect: false})}
-    >
-      log out
-    </button>
+    <section className="flex flex-col items-end p-3">
+      <ProfileMenu />
+      <RecentlyPlayed />
+    </section>
   );
 };
 

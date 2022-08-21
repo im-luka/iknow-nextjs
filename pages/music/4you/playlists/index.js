@@ -1,14 +1,12 @@
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import React from "react";
-import MainContent from "../../../components/music/4you/main-content";
-import MusicContainer from "../../../components/music/utils/music-container";
-import MusicLayout from "../../../components/layout/music-layout";
-import Loader from "../../../components/music/loader/loader";
-import MusicPlayer from "../../../components/music/utils/music-player";
+import Loader from "../../../../components/music/loader/loader";
+import MusicLayout from "../../../../components/layout/music-layout";
+import PlaylistsContainer from "../../../../components/music/playlists/playlists-container";
 import { useSelector } from "react-redux";
+import MusicPlayer from "../../../../components/music/utils/music-player";
 
-const ForYouPage = () => {
+const PlaylistsPage = () => {
   const router = useRouter();
 
   const { data: session, status } = useSession({
@@ -20,19 +18,13 @@ const ForYouPage = () => {
 
   const { isPlaying, song } = useSelector((store) => store.player);
 
-  console.log(isPlaying, song);
-
-  console.log(session);
-
   if (status === "loading") {
     return <Loader />;
   }
 
   return (
     <MusicLayout>
-      <MusicContainer>
-        <MainContent />
-      </MusicContainer>
+      <PlaylistsContainer />
 
       {isPlaying && (
         <MusicPlayer accessToken={session?.accessToken} trackUri={song?.uri} />
@@ -41,4 +33,4 @@ const ForYouPage = () => {
   );
 };
 
-export default ForYouPage;
+export default PlaylistsPage;
