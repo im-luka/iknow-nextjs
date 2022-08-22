@@ -27,7 +27,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div>
-          <RiAlbumFill className="navbar-icon" />
+          <Link href="/music/4you/albums">
+            <RiAlbumFill className="navbar-icon" />
+          </Link>
         </div>
         <div>
           <BsThreeDots className="navbar-icon" />

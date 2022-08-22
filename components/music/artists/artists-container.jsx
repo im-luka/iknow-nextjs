@@ -1,10 +1,9 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { BsArrowLeft, BsSuitHeart, BsSuitHeartFill } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { spotifyApi } from "../../../api/apiConfig";
-import { millisToMinutesAndSeconds } from "../../../data/convertion";
 import { setIsPlaying, setTrack } from "../../../redux/playerSlice";
 import ProfileMenu from "../features/profile-menu";
 import Search from "../utils/search";
