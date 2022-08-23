@@ -3,9 +3,9 @@ import Navbar from "../navbar/navbar";
 
 const MusicContainer = ({ children }) => {
   return (
-    <div className="h-screen flex items-start">
+    <div className="h-screen flex flex-col items-start xl:flex-row">
       <Navbar />
-      <section className="flex-grow">{children}</section>
+      <section className="flex-grow ml-20 xl:ml-auto">{children}</section>
       <Features />
     </div>
   );

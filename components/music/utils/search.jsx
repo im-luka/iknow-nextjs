@@ -2,7 +2,7 @@ import { BsSearch } from "react-icons/bs";
 
 const Search = ({ search, setSearch }) => {
   return (
-    <div className="flex items-center gap-2 p-2 rounded-lg border-2 border-custom-light-blue bg-custom-black">
+    <div className="w-2/3 xl:w-auto flex items-center gap-2 p-2 rounded-lg border-2 border-custom-light-blue bg-custom-black">
       <BsSearch className="text-xl flex-shrink-0" />
 
       <input

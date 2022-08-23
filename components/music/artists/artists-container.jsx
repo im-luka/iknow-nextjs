@@ -118,13 +118,13 @@ const ArtistsContainer = () => {
 
   return (
     <section
-      className="relative w-full h-screen bg-no-repeat bg-cover bg-center"
+      className="relative w-full min-h-screen bg-no-repeat bg-cover bg-center"
       style={{ backgroundImage: `url(${artist.image})` }}
     >
       <div className="absolute left-0 right-0 top-0 bottom-0 bg-custom-dark-blue/70" />
 
       <div className="relative h-full z-10 flex flex-col">
-        <div className="flex justify-between items-start gap-14 p-3">
+        <div className="flex justify-between items-start p-3 space-x-3 lg:gap-14">
           <div>
             <BsArrowLeft
               className="text-5xl cursor-pointer hover:animate-pulse"
@@ -141,8 +141,8 @@ const ArtistsContainer = () => {
           </div>
         </div>
 
-        <div className="w-full h-full flex items-center">
-          <div className="w-1/2 p-10 space-y-4 mb-36">
+        <div className="w-full h-full flex flex-col items-center lg:flex-row">
+          <div className="w-full p-10 space-y-4 lg:mb-36 lg:w-1/2">
             <h3 className="text-lg italic opacity-80">
               {artist.followers} FOLLOWERS
             </h3>
@@ -150,7 +150,7 @@ const ArtistsContainer = () => {
             <p className="text-base opacity-80">{artist.genres}</p>
           </div>
 
-          <div className="w-1/2 p-4">
+          <div className="w-full p-4 lg:w-1/2">
             <div className="space-y-4">
               <h3 className="opacity-50 font-bold">FEATURED TRACK</h3>
               <div className="flex justify-start items-end gap-7">
@@ -186,13 +186,13 @@ const ArtistsContainer = () => {
 
             <div className="mt-[75px] mb-20">
               <h3 className="opacity-50 mb-3 font-bold">POPULAR ALBUMS</h3>
-              <div className="flex justify-start gap-5">
+              <div className="flex justify-start flex-wrap gap-5">
                 {albums.map((album) => (
                   <div key={album.id}>
                     <img
                       src={album.image}
                       alt={album.name}
-                      className="h-48 w-4h-48 opacity-80 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
+                      className="h-48 w-48 opacity-80 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
                     />
                   </div>
                 ))}

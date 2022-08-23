@@ -115,9 +115,9 @@ const AlbumsContainer = () => {
   };
 
   return (
-    <section className="w-full h-screen flex flex-col">
+    <section className="w-full flex flex-col lg:h-screen">
       <div>
-        <div className="flex justify-between items-start gap-14 p-3">
+        <div className="flex justify-between items-start p-3 space-x-3 lg:gap-14">
           <div>
             <BsArrowLeft
               className="text-5xl cursor-pointer hover:animate-pulse"
@@ -135,8 +135,8 @@ const AlbumsContainer = () => {
         </div>
       </div>
 
-      <div className="h-full flex justify-center items-start">
-        <div className="w-[60%] h-full flex flex-col gap-3">
+      <div className="h-full flex flex-col justify-center items-start lg:flex-row">
+        <div className="w-full h-full flex flex-col gap-3 lg:w-[60%]">
           <div className="w-full flex justify-start items-center gap-5 p-8 pt-12">
             <img
               src={album.image}
@@ -152,7 +152,7 @@ const AlbumsContainer = () => {
             </div>
           </div>
 
-          <div className="relative h-full overflow-y-scroll scrollbar-hide">
+          <div className="relative h-[425px] overflow-y-scroll scrollbar-hide lg:h-full">
             <div className="absolute z-20 w-full flex justify-around items-center py-3 bg-custom-black border">
               <div className="w-[10%] text-center">#</div>
               <div className="w-[60%] text-center">TITLE</div>
@@ -172,7 +172,7 @@ const AlbumsContainer = () => {
           </div>
         </div>
 
-        <div className="w-[40%] h-full flex flex-col justify-start items-center gap-7 pt-24">
+        <div className="w-full h-full flex flex-col justify-start items-center gap-7 pt-24 lg:w-[40%]">
           <h1 className="text-6xl font-bold">{album.artist} 🎼</h1>
 
           <div className="space-y-4 flex flex-col items-start">
@@ -187,7 +187,7 @@ const AlbumsContainer = () => {
             </p>
           </div>
 
-          <div className="mt-10 p-8 space-y-7">
+          <div className="mt-10 p-8 space-y-7 mb-44 lg:mb-auto">
             <h2 className="text-xl opacity-70 font-medium">
               Recommended 4 You
             </h2>

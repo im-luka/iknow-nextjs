@@ -45,9 +45,11 @@ const RecentlyPlayedItem = ({ track }) => {
         </p>
       </div>
 
-      <div>{millisToMinutesAndSeconds(track.duration)}</div>
+      <div className="hidden sm:block">
+        {millisToMinutesAndSeconds(track.duration)}
+      </div>
 
-      <div>
+      <div className="hidden sm:block">
         <BsThreeDots size="1.25rem" color="gray" />
       </div>
     </div>

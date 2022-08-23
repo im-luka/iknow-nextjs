@@ -60,19 +60,19 @@ const MainContent = () => {
   }, [accessToken]);
 
   return (
-    <section className="m-4">
+    <section className="m-4 flex flex-col">
       <Search search={search} setSearch={setSearch} />
       <FeaturedList
         featuredMusic={featuredMusic}
         searchedMusic={searchResults}
       />
 
-      <div className="flex flex-wrap justify-between gap-12 mt-8 items-start min-w-full">
-        <div>
+      <div className="flex flex-col justify-between gap-12 mt-8 items-start min-w-full xl:flex-row xl:flex-wrap">
+        <div className="w-full xl:w-auto">
           <Tabs />
         </div>
 
-        <div className="flex gap-12">
+        <div className="flex flex-wrap gap-4 w-full xl:gap-12 xl:w-auto">
           <GridArtists />
           <GridAlbums />
         </div>

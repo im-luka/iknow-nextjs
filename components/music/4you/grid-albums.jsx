@@ -41,7 +41,7 @@ const GridAlbums = () => {
             key={album.id}
             src={album.image}
             alt={album.name}
-            className="w-40 h-40 opacity-70 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
+            className="w-40 h-40 shrink-0 opacity-70 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
           />
         ))}
       </div>

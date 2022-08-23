@@ -42,7 +42,7 @@ const Main = ({ playlist }) => {
         </div>
       </div>
 
-      <div className="flex justify-start items-center gap-4 p-3">
+      <div className="flex flex-col justify-start items-center gap-4 p-3 md:flex-row">
         <div>
           <img
             src={playlist.image || "/images/error/music_note.png"}
@@ -51,7 +51,7 @@ const Main = ({ playlist }) => {
           />
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1 mt-3 md:gap-4 md:mt-auto">
           <div>
             <h3 className="text-lg italic font-light opacity-60">PLAYLIST</h3>
           </div>
@@ -66,11 +66,11 @@ const Main = ({ playlist }) => {
         </div>
       </div>
 
-      <div className="mt-16 h-full overflow-y-scroll scrollbar-hide pb-24">
+      <div className="mt-8 h-full overflow-y-scroll scrollbar-hide pb-24 md:mt-16">
         <div className="absolute z-20 w-full flex justify-around items-center py-2.5 bg-custom-dark-blue">
           <div className="w-[10%] text-center">#</div>
           <div className="w-[40%] text-center">Title & Artist</div>
-          <div className="w-[40%] text-center">Album</div>
+          <div className="w-[40%] text-center hidden lg:block">Album</div>
           <div className="w-[10%] text-center">Duration</div>
         </div>
 
@@ -82,12 +82,12 @@ const Main = ({ playlist }) => {
             >
               <div className="w-[10%] text-center">{index + 1}</div>
               <div className="w-[40%]">
-                <div className="ml-24 flex items-center justify-start gap-3">
-                  <div>
+                <div className="flex items-center justify-start gap-3 lg:ml-24">
+                  <div className="shrink-0">
                     <img
                       src={track.image}
                       alt={track.name}
-                      className="w-16 h-16 rounded-sm shadow-md shadow-custom-blue object-cover hover:scale-110 transition duration-500 cursor-pointer"
+                      className="w-16 h-16 rounded-sm shadow-md shadow-custom-blue object-cover hover:scale-110 transition duration-500 cursor-pointer hidden md:block"
                       onClick={handlePlay.bind(null, track)}
                     />
                   </div>
@@ -105,7 +105,7 @@ const Main = ({ playlist }) => {
                   </div>
                 </div>
               </div>
-              <div className="w-[40%] text-center opacity-60 hover:underline cursor-pointer">
+              <div className="w-[40%] text-center opacity-60 hover:underline cursor-pointer hidden lg:block">
                 {track.album}
               </div>
               <div className="w-[10%] text-center">

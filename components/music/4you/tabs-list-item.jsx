@@ -32,7 +32,7 @@ const TabsListItem = ({ track }) => {
 
       <div className="flex-grow">
         <h3
-          className="line-clamp-1 truncate font-medium hover:underline"
+          className="line-clamp-1 max-w-[100px] font-medium hover:underline sm:max-w-[300px]"
           onClick={handlePlay}
         >
           {track.name}{" "}

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <section className="h-screen relative z-20 flex flex-col items-center p-4 space-y-10 bg-black">
+    <section className="fixed h-screen z-20 flex flex-col items-center p-4 space-y-10 bg-black xl:relative">
       {/* <h1 className="text-4xl font-logo text-custom-light-blue">iPLAY</h1> */}
       <div>
         <BsSpotify className="text-4xl mt-1 text-custom-light-blue" />

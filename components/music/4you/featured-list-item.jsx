@@ -21,16 +21,16 @@ const FeaturedListItem = ({ song, playSong }) => {
 
   return (
     <div
-      className="w-48 h-72 overflow-hidden relative text-custom-white/80 cursor-pointer hover:scale-105 hover:text-custom-white/100 transition duration-200 ease-out group mx-auto"
+      className="w-32 h-48 sm:w-48 sm:h-72 mt-10 lg:mt-auto overflow-hidden relative text-custom-white/80 cursor-pointer hover:scale-105 hover:text-custom-white/100 transition duration-200 ease-out group mx-auto"
       onClick={handlePlay}
     >
       <img
         src={song.albumUrl}
         alt={song.title}
-        className="h-full w-full object-cover rounded-[50px] opacity-80 group-hover:opacity-100"
+        className="h-full w-full object-cover rounded-[10px] opacity-80 group-hover:opacity-100 md:rounded-[30px]"
       />
 
-      <div className="absolute bottom-5 ml-1 flex items-center space-x-1">
+      <div className="absolute bottom-8 ml-1 flex items-center space-x-1 lg:bottom-5">
         <div className="h-9 w-9 bg-custom-light-blue rounded-full flex items-center justify-center group-hover:bg-custom-blue flex-shrink-0 transition">
           {song.uri === songState.uri && isPlayingState ? (
             <BsFillPauseFill className="text-xl" />

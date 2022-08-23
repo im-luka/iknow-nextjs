@@ -73,11 +73,10 @@ const PlaylistsContainer = () => {
   }, [accessToken, playlistState]);
 
   return (
-    <section className="w-full h-screen overflow-hidden">
+    <section className="w-full overflow-hidden lg:h-screen">
       <div
-        className="w-full h-full grid"
+        className="w-full h-full flex items-stretch"
         style={{
-          gridTemplateColumns: "15vw 85vw",
           background: "linear-gradient(transparent, rgba(0,0,0,1))",
           backgroundColor: "#1652a7",
         }}

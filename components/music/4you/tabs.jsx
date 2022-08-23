@@ -80,7 +80,7 @@ const Tabs = () => {
 
   return (
     <Tab.Group>
-      <Tab.List className="flex gap-10">
+      <Tab.List className="flex gap-2 md:gap-10">
         <Tab
           className={({ selected }) =>
             `p-2 opacity-50 ${selected ? "opacity-100 shadow-xl" : ""}`
