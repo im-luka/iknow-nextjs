@@ -36,7 +36,7 @@ const RecentlyPlayed = () => {
   }, [accessToken]);
 
   return (
-    <aside className="mt-8 m-2 p-4 space-y-6 bg-custom-black relative left-20 xl:left-0">
+    <aside className="mt-8 m-2 p-4 space-y-6 bg-custom-black relative left-20 xl:left-0 xl:z-0">
       <h2 className="text-3xl inline border-b-2">Recently Played</h2>
       <div className="space-y-2 h-[575px] overflow-y-scroll scrollbar-hide">
         {recentlyPlayedTracks.map((track, index) => (

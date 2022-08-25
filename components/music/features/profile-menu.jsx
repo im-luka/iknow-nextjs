@@ -9,7 +9,10 @@ const ProfileMenu = () => {
   const router = useRouter();
 
   return (
-    <Menu as="div" className="w-36 h-12 relative flex items-center">
+    <Menu
+      as="div"
+      className="relative z-30 w-36 h-12 relative flex items-center"
+    >
       <div className="w-full absolute right-1 group">
         <Menu.Button className="flex items-center w-full px-7 py-2 text-md text-white rounded-full bg-[#251e1e] hover:bg-[#463e3e] transition">
           <p>{session.user.name}</p>
