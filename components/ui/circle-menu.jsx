@@ -104,7 +104,7 @@ const CircleMenu = ({ isMenu, inCorner }) => {
           </defs>
           <text fontSize="16">
             <textPath xlinkHref="#circle">
-              We are the best f*ck the rest
+              fav place for music & movies |
             </textPath>
           </text>
         </svg>

@@ -13,7 +13,9 @@ const ScreenplayContainer = () => {
     <section id="screenplay" className={styles.screenplay}>
       <div className={styles.screenplay__cover}>
         <div className={styles.aligner}>
-          <h2 className={styles.outline}>We are the best f*ck the rest</h2>
+          <h2 className={styles.outline}>
+            your favorite place for music & movies
+          </h2>
         </div>
 
         <div className={styles.screenplay__cover__header}>

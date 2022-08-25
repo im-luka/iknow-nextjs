@@ -14,7 +14,9 @@ const MusicContainer = () => {
     <>
       <section id="music" className={styles.music}>
         <div className={styles.aligner}>
-          <h2 className={styles.outline}>We are the best f*ck the rest</h2>
+          <h2 className={styles.outline}>
+            your favorite place for music & movies
+          </h2>
         </div>
 
         <div className={styles.music__container}>
