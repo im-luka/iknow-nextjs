@@ -8,6 +8,8 @@ const SignInPage = ({ providers }) => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
+  console.log(session);
+
   useEffect(() => {
     if (session) {
       router.replace("/music/4you");
