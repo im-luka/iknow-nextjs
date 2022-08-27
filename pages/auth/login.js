@@ -30,7 +30,7 @@ const SignInPage = ({ providers }) => {
 
       <h1 className="text-4xl">Login with iMUSIC</h1>
 
-      {Object.values(providers).map((provider) => (
+      {/* {Object.values(providers).map((provider) => (
         <div key={provider.id}>
           <button
             className="p-4 text-lg bg-custom-blue text-custom-dark-blue rounded-full"
@@ -39,7 +39,7 @@ const SignInPage = ({ providers }) => {
             Login with {provider.name}
           </button>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
