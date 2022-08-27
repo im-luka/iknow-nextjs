@@ -10,6 +10,7 @@ const SignInPage = ({ providers }) => {
 
   console.log(session);
   console.log(status);
+  console.log(providers);
 
   useEffect(() => {
     if (session) {
