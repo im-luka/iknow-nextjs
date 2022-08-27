@@ -14,13 +14,13 @@ export async function middleware(req) {
 
   // console.log(url, token, pathname, req);
 
-  console.log(token);
-  console.log(pathname);
-  console.log(req);
+  // console.log(token);
+  // console.log(pathname);
+  // console.log(req);
 
-  if (pathname.includes("/api/auth/session")) {
-    return NextResponse.redirect(new URL("/auth/login", req.url));
-  }
+  // if (pathname.includes("/api/auth/session")) {
+  //   return NextResponse.redirect(new URL("/auth/login", req.url));
+  // }
 
   // if (pathname.includes("/api/auth") || token) {
   //   return NextResponse.next();

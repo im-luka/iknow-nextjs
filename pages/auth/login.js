@@ -4,13 +4,13 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Loader from "../../components/music/loader/loader";
 
-const SignInPage = (props) => {
+const SignInPage = ({ providers }) => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
   console.log(session);
   console.log(status);
-  console.log(props);
+  console.log(providers);
 
   useEffect(() => {
     if (session) {
@@ -30,14 +30,14 @@ const SignInPage = (props) => {
 
       <h1 className="text-4xl">Login with iMUSIC</h1>
 
-      {props &&
-        Object.values(props).map((provider) => (
-          <div key={provider.id}>
+      {providers &&
+        Object.values(providers).map((provider) => (
+          <div key={provider?.id}>
             <button
               className="p-4 text-lg bg-custom-blue text-custom-dark-blue rounded-full"
-              onClick={() => signIn(provider.id)}
+              onClick={() => signIn(provider?.id)}
             >
-              Login with {provider.name}
+              Login with {provider?.name}
             </button>
           </div>
         ))}
@@ -47,9 +47,6 @@ const SignInPage = (props) => {
 
 export async function getServerSideProps(context) {
   const providers = await getProviders();
-
-  console.log(context);
-  console.log(providers);
 
   return {
     props: { providers },
