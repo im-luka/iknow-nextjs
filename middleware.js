@@ -3,7 +3,13 @@ import { NextResponse, NextRequest } from "next/server";
 
 export async function middleware(req) {
   const url = req.nextUrl.clone();
-  const token = await getToken({ req, secret: process.env.JWT_SECRET });
+  const token = await getToken({
+    req,
+    secret: process.env.JWT_SECRET,
+    secureCookie:
+      process.env.NEXTAUTH_URL?.startsWith("https://") ??
+      !!process.env.VERCEL_URL,
+  });
   const { pathname } = req.nextUrl;
 
   // console.log(url, token, pathname, req);
@@ -11,6 +17,10 @@ export async function middleware(req) {
   console.log(token);
   console.log(pathname);
   console.log(req);
+
+  if (pathname.includes("/api/auth/session")) {
+    return NextResponse.redirect(new URL("/auth/login", req.url));
+  }
 
   // if (pathname.includes("/api/auth") || token) {
   //   return NextResponse.next();
