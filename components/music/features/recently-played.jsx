@@ -28,6 +28,7 @@ const RecentlyPlayed = () => {
             duration: track.track.duration_ms,
             explicit: track.track.explicit,
             artist: track.track.artists.map((artist) => artist.name).join(", "),
+            artistId: track.track.artists[0].id,
             image: track.track.album.images[1].url,
           };
         })

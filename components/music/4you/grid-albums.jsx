@@ -2,11 +2,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { spotifyApi } from "../../../api/apiConfig";
+import { useRouter } from "next/router";
 
 const GridAlbums = () => {
   const { data: session } = useSession();
   const accessToken = session?.accessToken;
   const [albums, setAlbums] = useState([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (!accessToken) return;
@@ -31,6 +34,10 @@ const GridAlbums = () => {
     );
   }, [accessToken]);
 
+  const handleAlbum = (albumId) => {
+    router.replace(`/music/4you/albums?album=${albumId}`);
+  };
+
   return (
     <div className="flex flex-col justify-start items-start space-y-4 py-2">
       <h2 className="text-2xl font-bold">Popular Albums</h2>
@@ -42,6 +49,7 @@ const GridAlbums = () => {
             src={album.image}
             alt={album.name}
             className="w-40 h-40 shrink-0 opacity-70 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
+            onClick={handleAlbum.bind(null, album.id)}
           />
         ))}
       </div>

@@ -27,6 +27,14 @@ const Main = ({ playlist }) => {
     router.replace("/music/4you");
   };
 
+  const handleArtist = (artistId) => {
+    router.replace(`/music/4you/artists?artist=${artistId}`);
+  };
+
+  const handleAlbum = (albumId) => {
+    router.replace(`/music/4you/albums?album=${albumId}`);
+  };
+
   return (
     <main className="relative w-full h-screen flex flex-col">
       <div className="w-full flex justify-between items-start p-4">
@@ -99,13 +107,19 @@ const Main = ({ playlist }) => {
                     >
                       {track.name}
                     </h2>
-                    <p className="text-sm italic opacity-60 hover:underline cursor-pointer">
+                    <p
+                      className="text-sm italic opacity-60 hover:underline cursor-pointer"
+                      onClick={handleArtist.bind(null, track.artistId)}
+                    >
                       {track.artist}
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="w-[40%] text-center opacity-60 hover:underline cursor-pointer hidden lg:block">
+              <div
+                className="w-[40%] text-center opacity-60 hover:underline cursor-pointer hidden lg:block"
+                onClick={handleAlbum.bind(null, track.albumId)}
+              >
                 {track.album}
               </div>
               <div className="w-[10%] text-center">

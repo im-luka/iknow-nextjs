@@ -31,6 +31,7 @@ const Tabs = () => {
             duration: track.duration_ms,
             explicit: track.explicit,
             artist: track.artists.map((artist) => artist.name).join(", "),
+            artistId: track.artists[0].id,
             image: track.album.images[1].url,
           };
         })
@@ -51,6 +52,7 @@ const Tabs = () => {
             duration: track.duration_ms,
             explicit: track.explicit,
             artist: track.artists.map((artist) => artist.name).join(", "),
+            artistId: track.artists[0].id,
             image: track.album.images[1].url,
           };
         })
@@ -71,6 +73,7 @@ const Tabs = () => {
             duration: track.track.duration_ms,
             explicit: track.track.explicit,
             artist: track.track.artists.map((artist) => artist.name).join(", "),
+            artistId: track.track.artists[0].id,
             image: track.track.album.images[1].url,
           };
         })

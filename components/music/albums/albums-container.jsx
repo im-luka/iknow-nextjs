@@ -38,40 +38,69 @@ const AlbumsContainer = () => {
               release_date: album.release_date,
               image: album.images[1].url,
               artist: album.artists.map((artist) => artist.name).join(", "),
+              artistId: album.artists[0].id,
             };
           })[0]
         )
       );
     } else {
-      spotifyApi.getMySavedAlbums({ limit: 1 }).then((response) =>
-        setAlbum(
-          response.body.items.map((album) => {
-            return {
-              id: album.album.id,
-              uri: album.album.uri,
-              name: album.album.name,
-              total_tracks: album.album.total_tracks,
-              release_date: album.album.release_date,
-              popularity: album.album.popularity,
-              image: album.album.images[1].url,
-              artist: album.album.artists
-                .map((artist) => artist.name)
-                .join(", "),
-              tracks: album.album.tracks.items.map((track) => {
-                return {
-                  id: track.id,
-                  name: track.name,
-                  explicit: track.explicit,
-                  duration: track.duration_ms,
-                  uri: track.uri,
-                };
-              }),
-            };
-          })[0]
-        )
-      );
+      if (router.query.album) {
+        spotifyApi.getAlbum(router.query.album).then((response) =>
+          setAlbum({
+            id: response.body.id,
+            uri: response.body.uri,
+            name: response.body.name,
+            total_tracks: response.body.total_tracks,
+            release_date: response.body.release_date,
+            popularity: response.body.popularity,
+            image: response.body.images[1].url,
+            artist: response.body.artists
+              .map((artist) => artist.name)
+              .join(", "),
+            artistId: response.body.artists[0].id,
+            tracks: response.body.tracks.items.map((track) => {
+              return {
+                id: track.id,
+                name: track.name,
+                explicit: track.explicit,
+                duration: track.duration_ms,
+                uri: track.uri,
+              };
+            }),
+          })
+        );
+      } else {
+        spotifyApi.getMySavedAlbums({ limit: 1 }).then((response) =>
+          setAlbum(
+            response.body.items.map((album) => {
+              return {
+                id: album.album.id,
+                uri: album.album.uri,
+                name: album.album.name,
+                total_tracks: album.album.total_tracks,
+                release_date: album.album.release_date,
+                popularity: album.album.popularity,
+                image: album.album.images[1].url,
+                artist: album.album.artists
+                  .map((artist) => artist.name)
+                  .join(", "),
+                artistId: album.album.artists[0].id,
+                tracks: album.album.tracks.items.map((track) => {
+                  return {
+                    id: track.id,
+                    name: track.name,
+                    explicit: track.explicit,
+                    duration: track.duration_ms,
+                    uri: track.uri,
+                  };
+                }),
+              };
+            })[0]
+          )
+        );
+      }
     }
-  }, [accessToken, search]);
+  }, [accessToken, router.query.album, search]);
 
   useEffect(() => {
     if (!accessToken) return;
@@ -114,6 +143,15 @@ const AlbumsContainer = () => {
     router.replace("/music/4you");
   };
 
+  const handleArtist = (artistId) => {
+    router.replace(`/music/4you/artists?artist=${artistId}`);
+  };
+
+  const handleAlbum = (albumId) => {
+    setSearch("");
+    router.replace(`/music/4you/albums?album=${albumId}`);
+  };
+
   return (
     <section className="w-full flex flex-col lg:h-screen">
       <div>
@@ -148,7 +186,12 @@ const AlbumsContainer = () => {
               <h1 className="text-3xl font-bold tracking-wider">
                 {album.name}
               </h1>
-              <h3 className="text-lg italic opacity-70">{album.artist}</h3>
+              <h3
+                className="text-lg italic opacity-70 hover:underline hover:cursor-pointer"
+                onClick={handleArtist.bind(null, album.artistId)}
+              >
+                {album.artist}
+              </h3>
             </div>
           </div>
 
@@ -173,7 +216,12 @@ const AlbumsContainer = () => {
         </div>
 
         <div className="w-full h-full flex flex-col justify-start items-center gap-7 pt-24 lg:w-[40%]">
-          <h1 className="text-6xl font-bold">{album.artist} 🎼</h1>
+          <h1
+            className="text-6xl font-bold hover:underline hover:cursor-pointer"
+            onClick={handleArtist.bind(null, album.artistId)}
+          >
+            {album.artist} 🎼
+          </h1>
 
           <div className="space-y-4 flex flex-col items-start">
             <p className="text-xl border-b">
@@ -198,6 +246,7 @@ const AlbumsContainer = () => {
                   src={recom.image}
                   alt={recom.name}
                   className="w-40 h-40 opacity-70 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
+                  onClick={handleAlbum.bind(null, recom.id)}
                 />
               ))}
             </div>

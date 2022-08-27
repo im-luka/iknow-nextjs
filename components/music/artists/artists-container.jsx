@@ -59,21 +59,33 @@ const ArtistsContainer = () => {
         )
       );
     } else {
-      spotifyApi.getMyTopArtists({ limit: 1 }).then((response) =>
-        setArtist(
-          response.body.items.map((artist) => {
-            return {
-              id: artist.id,
-              name: artist.name,
-              followers: artist.followers.total,
-              image: artist.images[0].url,
-              genres: artist.genres.join(", "),
-            };
-          })[0]
-        )
-      );
+      if (router.query.artist) {
+        spotifyApi.getArtist(router.query.artist).then((response) =>
+          setArtist({
+            id: response.body.id,
+            name: response.body.name,
+            followers: response.body.followers.total,
+            image: response.body.images[0].url,
+            genres: response.body.genres.join(", "),
+          })
+        );
+      } else {
+        spotifyApi.getMyTopArtists({ limit: 1 }).then((response) =>
+          setArtist(
+            response.body.items.map((artist) => {
+              return {
+                id: artist.id,
+                name: artist.name,
+                followers: artist.followers.total,
+                image: artist.images[0].url,
+                genres: artist.genres.join(", "),
+              };
+            })[0]
+          )
+        );
+      }
     }
-  }, [accessToken, search]);
+  }, [accessToken, router.query.artist, search]);
 
   useEffect(() => {
     if (!accessToken) return;
@@ -114,6 +126,10 @@ const ArtistsContainer = () => {
 
   const handleGoBack = () => {
     router.replace("/music/4you");
+  };
+
+  const handleAlbum = (albumId) => {
+    router.replace(`/music/4you/albums?album=${albumId}`);
   };
 
   return (
@@ -193,6 +209,7 @@ const ArtistsContainer = () => {
                       src={album.image}
                       alt={album.name}
                       className="h-48 w-48 opacity-80 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
+                      onClick={handleAlbum.bind(null, album.id)}
                     />
                   </div>
                 ))}

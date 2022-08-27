@@ -39,8 +39,10 @@ const PlaylistsContainer = () => {
               artist: item.track.artists
                 .map((artist) => artist.name)
                 .join(", "),
+              artistId: item.track.artists[0].id,
               image: item.track.album.images[1].url,
               album: item.track.album.name,
+              albumId: item.track.album.id,
             };
           }),
         });
@@ -63,8 +65,10 @@ const PlaylistsContainer = () => {
               artist: item.track.artists
                 .map((artist) => artist.name)
                 .join(", "),
+              artistId: item.track.artists[0].id,
               image: item.track.album.images[1].url,
               album: item.track.album.name,
+              albumId: item.track.album.id,
             };
           }),
         });

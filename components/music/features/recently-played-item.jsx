@@ -2,12 +2,15 @@ import { millisToMinutesAndSeconds } from "../../../data/convertion";
 import { BsThreeDots } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsPlaying, setTrack } from "../../../redux/playerSlice";
+import { useRouter } from "next/router";
 
 const RecentlyPlayedItem = ({ track }) => {
   const { isPlaying: isPlayingState, song: songState } = useSelector(
     (store) => store.player
   );
   const dispatch = useDispatch();
+
+  const router = useRouter();
 
   const handlePlay = () => {
     dispatch(setTrack(track));
@@ -17,6 +20,10 @@ const RecentlyPlayedItem = ({ track }) => {
     if (track.uri === songState.uri) {
       dispatch(setIsPlaying(!isPlayingState));
     }
+  };
+
+  const handleArtist = () => {
+    router.replace(`/music/4you/artists?artist=${track.artistId}`);
   };
 
   return (
@@ -40,7 +47,10 @@ const RecentlyPlayedItem = ({ track }) => {
             </span>
           )}{" "}
         </h3>
-        <p className="text-sm font-light opacity-70 hover:underline">
+        <p
+          className="text-sm font-light opacity-70 hover:underline"
+          onClick={handleArtist}
+        >
           {track.artist}
         </p>
       </div>
