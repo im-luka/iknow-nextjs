@@ -12,10 +12,10 @@ const ForYouPage = () => {
   const router = useRouter();
 
   const { data: session, status } = useSession({
-    required: true,
-    onUnauthenticated: () => {
-      router.replace("/auth/login");
-    },
+    // required: true,
+    // onUnauthenticated: () => {
+    //   router.replace("/auth/login");
+    // },
   });
 
   const { isPlaying, song } = useSelector((store) => store.player);
