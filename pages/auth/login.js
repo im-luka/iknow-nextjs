@@ -11,15 +11,15 @@ const SignInPage = ({ providers }) => {
   console.log(session);
   console.log(status);
 
-  // useEffect(() => {
-  //   if (session) {
-  //     router.push("/music/4you");
-  //   }
-  // }, [router, session]);
+  useEffect(() => {
+    if (session) {
+      router.push("/music/4you");
+    }
+  }, [router, session]);
 
-  // if (session) {
-  //   return <Loader />;
-  // }
+  if (session) {
+    return <Loader />;
+  }
 
   return (
     <div className="h-screen flex flex-col items-center justify-center space-y-6">

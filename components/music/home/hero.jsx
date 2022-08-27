@@ -22,7 +22,7 @@ const Hero = () => {
         <div className={styles.hero__content__actions}>
           <button
             className="button button-primary"
-            onClick={() => router.push("/music/4you")}
+            onClick={() => router.push("/auth/login")}
           >
             Play Music
           </button>
