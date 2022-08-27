@@ -6,7 +6,7 @@ import RecentlyPlayedItem from "./recently-played-item";
 
 const RecentlyPlayed = () => {
   const { data: session } = useSession();
-  const accessToken = session?.accessToken;
+  const accessToken = session?.user.accessToken;
   const [recentlyPlayedTracks, setRecentlyPlayedTracks] = useState([]);
 
   useEffect(() => {

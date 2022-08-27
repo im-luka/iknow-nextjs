@@ -12,9 +12,9 @@ const SignInPage = ({ providers }) => {
 
   useEffect(() => {
     if (session) {
-      router.replace("/music/4you");
+      router.push("/music/4you");
     }
-  }, [session]);
+  }, [router, session]);
 
   if (session) {
     return <Loader />;

@@ -11,7 +11,7 @@ import ArtistsContainerItem from "./artists-container-item";
 
 const ArtistsContainer = () => {
   const { data: session } = useSession();
-  const accessToken = session?.accessToken;
+  const accessToken = session?.user.accessToken;
 
   const router = useRouter();
   const [search, setSearch] = useState("");

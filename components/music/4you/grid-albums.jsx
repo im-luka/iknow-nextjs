@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 const GridAlbums = () => {
   const { data: session } = useSession();
-  const accessToken = session?.accessToken;
+  const accessToken = session?.user.accessToken;
   const [albums, setAlbums] = useState([]);
 
   const router = useRouter();

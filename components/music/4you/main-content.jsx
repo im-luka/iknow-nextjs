@@ -10,7 +10,7 @@ import GridAlbums from "./grid-albums";
 
 const MainContent = () => {
   const { data: session } = useSession();
-  const accessToken = session?.accessToken;
+  const accessToken = session?.user.accessToken;
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [featuredMusic, setFeaturedMusic] = useState([]);

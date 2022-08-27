@@ -20,8 +20,6 @@ const ForYouPage = () => {
 
   const { isPlaying, song } = useSelector((store) => store.player);
 
-  console.log(isPlaying, song);
-
   console.log(session);
 
   if (status === "loading") {
@@ -35,7 +33,10 @@ const ForYouPage = () => {
       </MusicContainer>
 
       {isPlaying && (
-        <MusicPlayer accessToken={session?.accessToken} trackUri={song?.uri} />
+        <MusicPlayer
+          accessToken={session?.user.accessToken}
+          trackUri={song?.uri}
+        />
       )}
     </MusicLayout>
   );

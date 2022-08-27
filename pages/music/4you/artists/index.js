@@ -27,7 +27,10 @@ const ArtistsPage = () => {
       <ArtistsContainer />
 
       {isPlaying && (
-        <MusicPlayer accessToken={session?.accessToken} trackUri={song?.uri} />
+        <MusicPlayer
+          accessToken={session?.user.accessToken}
+          trackUri={song?.uri}
+        />
       )}
     </MusicLayout>
   );

@@ -10,7 +10,7 @@ const PlaylistsContainer = () => {
   const [playlist, setPlaylist] = useState([]);
 
   const { data: session } = useSession();
-  const accessToken = session?.accessToken;
+  const accessToken = session?.user.accessToken;
 
   useEffect(() => {
     if (!accessToken) return;

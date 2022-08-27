@@ -9,7 +9,7 @@ import AlbumsContainerTrack from "./albums-container-track";
 
 const AlbumsContainer = () => {
   const { data: session } = useSession();
-  const accessToken = session?.accessToken;
+  const accessToken = session?.user.accessToken;
 
   const router = useRouter();
   const [search, setSearch] = useState("");

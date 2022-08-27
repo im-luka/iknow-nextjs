@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 const GridArtists = () => {
   const { data: session } = useSession();
-  const accessToken = session?.accessToken;
+  const accessToken = session?.user.accessToken;
   const [artists, setArtists] = useState([]);
 
   const router = useRouter();

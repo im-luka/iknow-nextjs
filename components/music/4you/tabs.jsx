@@ -7,7 +7,7 @@ import { spotifyApi } from "../../../api/apiConfig";
 
 const Tabs = () => {
   const { data: session } = useSession();
-  const accessToken = session?.accessToken;
+  const accessToken = session?.user.accessToken;
   const [recommended, setRecommended] = useState([]);
   const [popular, setPopular] = useState([]);
   const [trending, setTrending] = useState([]);
