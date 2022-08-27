@@ -15,10 +15,10 @@ const ProfileMenu = () => {
     >
       <div className="w-full absolute right-1 group">
         <Menu.Button className="flex items-center w-full px-7 py-2 text-md text-white rounded-full bg-[#251e1e] hover:bg-[#463e3e] transition">
-          <p>{session.user.name}</p>
+          <p>{session?.user.name}</p>
           <img
-            src={session.user.image}
-            alt={session.user.name}
+            src={session?.user.image}
+            alt={session?.user.name}
             className="rounded-full w-11 h-11 absolute -right-1 object-cover"
           />
         </Menu.Button>
