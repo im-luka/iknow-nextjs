@@ -5,20 +5,21 @@ import { useEffect } from "react";
 import Loader from "../../components/music/loader/loader";
 
 const SignInPage = ({ providers }) => {
-  // const { data: session, status } = useSession();
-  // const router = useRouter();
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
-  // console.log(session);
+  console.log(session);
+  console.log(status);
 
-  // useEffect(() => {
-  //   if (session) {
-  //     router.push("/music/4you");
-  //   }
-  // }, [router, session]);
+  useEffect(() => {
+    if (session) {
+      router.push("/music/4you");
+    }
+  }, [router, session]);
 
-  // if (session) {
-  //   return <Loader />;
-  // }
+  if (session) {
+    return <Loader />;
+  }
 
   return (
     <div className="h-screen flex flex-col items-center justify-center space-y-6">
