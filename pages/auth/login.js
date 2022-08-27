@@ -10,7 +10,7 @@ const SignInPage = (props) => {
 
   console.log(session);
   console.log(status);
-  console.log(providers);
+  console.log(props);
 
   useEffect(() => {
     if (session) {
@@ -30,26 +30,30 @@ const SignInPage = (props) => {
 
       <h1 className="text-4xl">Login with iMUSIC</h1>
 
-      {Object.values(props).map((provider) => (
-        <div key={provider.id}>
-          <button
-            className="p-4 text-lg bg-custom-blue text-custom-dark-blue rounded-full"
-            onClick={() => signIn(provider.id)}
-          >
-            Login with {provider.name}
-          </button>
-        </div>
-      ))}
+      {props &&
+        Object.values(props).map((provider) => (
+          <div key={provider.id}>
+            <button
+              className="p-4 text-lg bg-custom-blue text-custom-dark-blue rounded-full"
+              onClick={() => signIn(provider.id)}
+            >
+              Login with {provider.name}
+            </button>
+          </div>
+        ))}
     </div>
   );
 };
 
-export const getServerSideProps = async () => {
+export async function getServerSideProps(context) {
   const providers = await getProviders();
 
+  console.log(context);
+  console.log(providers);
+
   return {
-    props: providers,
+    props: { providers },
   };
-};
+}
 
 export default SignInPage;
