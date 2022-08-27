@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Loader from "../../components/music/loader/loader";
 
-const SignInPage = ({ providers }) => {
+const SignInPage = (props) => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -30,7 +30,7 @@ const SignInPage = ({ providers }) => {
 
       <h1 className="text-4xl">Login with iMUSIC</h1>
 
-      {/* {Object.values(providers).map((provider) => (
+      {Object.values(props).map((provider) => (
         <div key={provider.id}>
           <button
             className="p-4 text-lg bg-custom-blue text-custom-dark-blue rounded-full"
@@ -39,7 +39,7 @@ const SignInPage = ({ providers }) => {
             Login with {provider.name}
           </button>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };
@@ -48,7 +48,7 @@ export const getServerSideProps = async () => {
   const providers = await getProviders();
 
   return {
-    props: { providers },
+    props: providers,
   };
 };
 
