@@ -1,7 +1,7 @@
 import LyricsFinder from "lyrics-finder";
 
 async function handler(req, res) {
-  if (req.method !== "POST") return;
+  if (req.method !== "POST") res.json({ message: "not post method" });
 
   const { name, artist } = req.body;
 
