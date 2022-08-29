@@ -24,8 +24,6 @@ const CategoryContainer = () => {
     query: { category },
   } = useRouter();
 
-  console.log(page);
-
   useEffect(() => {
     setIsLoading(true);
     setPage(1);

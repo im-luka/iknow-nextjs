@@ -23,7 +23,6 @@ const PlaylistsContainer = () => {
 
     if (!playlistState.id) {
       spotifyApi.getMySavedTracks({ limit: 50 }).then((response) => {
-        console.log(response);
         setPlaylist({
           id: new Date().toString(),
           name: "Your Favorite Music",
@@ -49,7 +48,6 @@ const PlaylistsContainer = () => {
       });
     } else {
       spotifyApi.getPlaylist(playlistState.id).then((response) => {
-        console.log(response);
         setPlaylist({
           id: response.body.id,
           name: response.body.name,

@@ -55,7 +55,7 @@ const Main = ({ playlist }) => {
           <img
             src={playlist.image || "/images/error/music_note.png"}
             alt={playlist.name}
-            className="h-72 w-72 shadow-xl shadow-custom-dark-blue object-cover"
+            className="h-60 w-60 shadow-xl shadow-custom-dark-blue object-cover 2xl:h-72 2xl:w-72"
           />
         </div>
 
@@ -74,7 +74,7 @@ const Main = ({ playlist }) => {
         </div>
       </div>
 
-      <div className="mt-8 h-full overflow-y-scroll scrollbar-hide pb-24 md:mt-16">
+      <div className="mt-8 h-full overflow-y-scroll scrollbar-hide pb-24 2xl:mt-16">
         <div className="absolute z-20 w-full flex justify-around items-center py-2.5 bg-custom-dark-blue">
           <div className="w-[10%] text-center">#</div>
           <div className="w-[40%] text-center">Title & Artist</div>

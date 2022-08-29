@@ -8,24 +8,11 @@ const SignInPage = ({ providers }) => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  // const [providers, setProviders] = useState();
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const response = await getProviders();
-  //     setProviders(response);
-  //   })();
-  // }, []);
-
   useEffect(() => {
     if (session) {
       router.push("/music/4you");
     }
   }, [router, session]);
-
-  console.log(session);
-  console.log(status);
-  console.log(providers);
 
   if (session) {
     return <Loader />;

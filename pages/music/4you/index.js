@@ -20,8 +20,6 @@ const ForYouPage = () => {
 
   const { isPlaying, song } = useSelector((store) => store.player);
 
-  console.log(session);
-
   if (status === "loading") {
     return <Loader />;
   }

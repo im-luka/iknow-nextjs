@@ -12,7 +12,7 @@ const Navbar = () => {
         <BsSpotify className="text-4xl mt-1 text-custom-light-blue" />
       </div>
 
-      <nav className="h-1/3 flex flex-col justify-around">
+      <nav className="h-1/3 flex flex-col gap-2 justify-around">
         <div>
           <AiFillHome className="navbar-icon opacity-100" />
         </div>
