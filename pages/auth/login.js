@@ -1,22 +1,31 @@
 import Head from "next/head";
 import { getProviders, useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../components/music/loader/loader";
 
-const SignInPage = ({ providers }) => {
+const SignInPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  console.log(session);
-  console.log(status);
-  console.log(providers);
+  const [providers, setProviders] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const response = await getProviders();
+      setProviders(response);
+    })();
+  }, []);
 
   useEffect(() => {
     if (session) {
       router.push("/music/4you");
     }
   }, [router, session]);
+
+  console.log(session);
+  console.log(status);
+  console.log(providers);
 
   if (session) {
     return <Loader />;
@@ -45,12 +54,12 @@ const SignInPage = ({ providers }) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  const providers = await getProviders();
+// export async function getServerSideProps(context) {
+//   const providers = await getProviders();
 
-  return {
-    props: { providers },
-  };
-}
+//   return {
+//     props: { providers },
+//   };
+// }
 
 export default SignInPage;
