@@ -5,9 +5,13 @@ async function handler(req, res) {
 
   const { name, artist } = req.body;
 
-  const lyrics = (await LyricsFinder(artist, name)) || "No Lyrics Found";
+  try {
+    const lyrics = (await LyricsFinder(artist, name)) || "No Lyrics Found";
 
-  res.json({ lyrics });
+    res.json({ lyrics });
+  } catch (error) {
+    res.json({ message: error });
+  }
 }
 
 export default handler;
