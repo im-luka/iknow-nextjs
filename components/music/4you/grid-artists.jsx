@@ -20,9 +20,9 @@ const GridArtists = () => {
   useEffect(() => {
     if (!accessToken) return;
 
-    spotifyApi.getMyTopArtists({ limit: 4 }).then((response) =>
+    spotifyApi.getMyTopArtists({ limit: 10 }).then((response) =>
       setArtists(
-        response.body.items.map((item) => {
+        response.body.items.slice(3, 7).map((item) => {
           return {
             id: item.id,
             image: item.images[1].url,

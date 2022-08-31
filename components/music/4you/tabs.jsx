@@ -44,7 +44,7 @@ const Tabs = () => {
 
     spotifyApi.getMyTopTracks({ limit: 40 }).then((response) => {
       setPopular(
-        response.body.items.slice(20, 40).map((track) => {
+        response.body.items.slice(21, 40).map((track) => {
           return {
             id: track.id,
             name: track.name,

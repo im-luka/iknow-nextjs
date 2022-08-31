@@ -27,7 +27,7 @@ const Lyrics = ({ artist, name, setShowLyrics }) => {
 
   return (
     <div className="absolute bottom-0 top-0 left-0 right-0 z-20 bg-custom-black/70">
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3 h-[575px] min-w-[500px] p-4 pt-5 text-center overflow-y-scroll bg-custom-black whitespace-pre">
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3 h-[575px] max-h-[75%] min-w-[500px] p-4 pt-5 text-center overflow-y-scroll bg-custom-black whitespace-pre">
         <div className="absolute top-0 right-0">
           <CloseButton onClick={() => setShowLyrics(false)} />
         </div>
