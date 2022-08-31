@@ -68,7 +68,7 @@ const MainContent = () => {
       />
 
       <div className="flex flex-col justify-between gap-12 mt-8 items-start min-w-full xl:flex-row xl:flex-wrap">
-        <div className="w-full xl:w-auto xl:min-w-[580px]">
+        <div className="w-full 2xl:w-auto 2xl:min-w-[580px]">
           <Tabs />
         </div>
 

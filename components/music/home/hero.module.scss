@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
 
   background: rgb(255, 26, 26);
   background: linear-gradient(
@@ -110,7 +110,7 @@
   }
 
   @include tablet {
-    height: 90vh;
+    min-height: 90vh;
     flex-direction: column;
     justify-content: flex-end;
     gap: 2rem;
@@ -123,6 +123,7 @@
 
     &__content {
       width: 75%;
+      text-align: center;
     }
   }
 

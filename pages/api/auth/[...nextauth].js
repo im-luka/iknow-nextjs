@@ -29,12 +29,12 @@ const refreshAccessToken = async (token) => {
 export default NextAuth({
   providers: [
     SpotifyProvider({
-      clientId: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
-      clientSecret: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET,
+      clientId: process.env.SPOTIFY_CLIENT_ID,
+      clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
       authorization: LOGIN_URL,
     }),
   ],
-  secret: process.env.JWT_SECRET,
+  secret: process.env.NEXT_SECRET,
   pages: {
     signIn: "/auth/login",
   },

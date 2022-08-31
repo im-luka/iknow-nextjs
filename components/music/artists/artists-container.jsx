@@ -173,7 +173,7 @@ const ArtistsContainer = () => {
                 <img
                   src={tracks[0]?.image}
                   alt={tracks[0]?.name}
-                  className="h-36 w-36 object-cover shadow-2xl shadow-custom-dark-blue hover:scale-105 transition duration-500 hover:shadow-custom-blue cursor-pointer"
+                  className="h-32 w-32 2xl:h-36 2xl:w-36 object-cover shadow-2xl shadow-custom-dark-blue hover:scale-105 transition duration-500 hover:shadow-custom-blue cursor-pointer"
                   onClick={handlePlay.bind(null, tracks[0])}
                 />
 
@@ -202,13 +202,13 @@ const ArtistsContainer = () => {
 
             <div className="mt-[75px] mb-20">
               <h3 className="opacity-50 mb-3 font-bold">POPULAR ALBUMS</h3>
-              <div className="flex justify-start flex-wrap gap-5">
+              <div className="flex justify-start flex-wrap gap-4">
                 {albums.map((album) => (
                   <div key={album.id}>
                     <img
                       src={album.image}
                       alt={album.name}
-                      className="h-48 w-48 opacity-80 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
+                      className="h-36 w-36 2xl:h-48 2xl:h-48 opacity-80 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
                       onClick={handleAlbum.bind(null, album.id)}
                     />
                   </div>

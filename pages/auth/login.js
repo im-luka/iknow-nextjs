@@ -4,28 +4,15 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Loader from "../../components/music/loader/loader";
 
-const SignInPage = () => {
+const SignInPage = ({ providers }) => {
   const { data: session, status } = useSession();
   const router = useRouter();
-
-  const [providers, setProviders] = useState();
-
-  useEffect(() => {
-    (async () => {
-      const response = await getProviders();
-      setProviders(response);
-    })();
-  }, []);
 
   useEffect(() => {
     if (session) {
       router.push("/music/4you");
     }
   }, [router, session]);
-
-  console.log(session);
-  console.log(status);
-  console.log(providers);
 
   if (session) {
     return <Loader />;
@@ -54,12 +41,12 @@ const SignInPage = () => {
   );
 };
 
-// export async function getServerSideProps(context) {
-//   const providers = await getProviders();
+export async function getServerSideProps(context) {
+  const providers = await getProviders();
 
-//   return {
-//     props: { providers },
-//   };
-// }
+  return {
+    props: { providers },
+  };
+}
 
 export default SignInPage;
