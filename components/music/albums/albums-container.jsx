@@ -125,7 +125,7 @@ const AlbumsContainer = () => {
   useEffect(() => {
     if (!accessToken) return;
 
-    spotifyApi.getMySavedAlbums({ limit: 5 }).then((response) =>
+    spotifyApi.getMySavedAlbums({ limit: 4 }).then((response) =>
       setRecommended(
         response.body.items.map((album) => {
           return {

@@ -13,7 +13,7 @@ import { useEffect } from "react";
 const HeroSlide = () => {
   const { data, error, loading } = useFetch(
     screenplayAxiosClient,
-    screenplayApiCalls.getMovies(MovieType.Popular, { params: { page: 3 } })
+    screenplayApiCalls.getMovies(MovieType.Popular, { params: { page: 2 } })
   );
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const HeroSlide = () => {
     );
   }
 
-  const movieItems = data.data.results.slice(0, 5);
+  const movieItems = data.data.results.slice(0, 4);
 
   return (
     <section className={styles.hero_slide}>

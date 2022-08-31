@@ -208,7 +208,7 @@ const ArtistsContainer = () => {
                     <img
                       src={album.image}
                       alt={album.name}
-                      className="h-36 w-36 2xl:h-48 2xl:h-48 opacity-80 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
+                      className="h-36 w-36 2xl:h-48 2xl:w-48 opacity-80 rounded-xl cursor-pointer shadow-md shadow-custom-blue/10 hover:shadow-xl hover:shadow-custom-blue hover:opacity-100 hover:scale-105 transition duration-500"
                       onClick={handleAlbum.bind(null, album.id)}
                     />
                   </div>
