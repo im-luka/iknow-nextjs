@@ -23,10 +23,10 @@ const Followers = () => {
           </div>
 
           <div className={styles.followers__content__description}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            ipsam dicta, qui voluptatum suscipit animi sapiente provident
-            necessitatibus nam et incidunt nesciunt eum id aspernatur illum sit
-            quod eius at.
+            If you want to be a rock star or just be famous, then run down the
+            street naked, you&apos;ll make the news or something. But if you
+            want music to be your livelihood, then play, play, play and play!
+            And eventually you&apos;ll get to where you want to be.
           </div>
         </div>
 
@@ -45,10 +45,12 @@ const Followers = () => {
           </div>
 
           <div className={styles.followers__content__description}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            ipsam dicta, qui voluptatum suscipit animi sapiente provident
-            necessitatibus nam et incidunt nesciunt eum id aspernatur illum sit
-            quod eius at.
+            Remember the first time you went to a show and saw your favorite
+            band. You wore their shirt, and sang every word. You didn&apos;t
+            know anything about scene politics, haircuts, or what was cool. All
+            you knew was that this music made you feel different from anyone you
+            shared a locker with. Someone finally understood you. This is what
+            music is about.
           </div>
 
           <div className={styles.followers__content__actions}>

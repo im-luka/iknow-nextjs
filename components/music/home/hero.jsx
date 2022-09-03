@@ -16,8 +16,8 @@ const Hero = () => {
       <div className={styles.hero__content}>
         <h1>Music. is. life. itself.</h1>
         <p>
-          The emotions caused by music, the attitudes of it&apos;s composers and
-          players, and the venues.
+          Music doesn&apos;t lie. If there is something to be changed in this
+          world, then it can only happen through music.
         </p>
         <div className={styles.hero__content__actions}>
           <button

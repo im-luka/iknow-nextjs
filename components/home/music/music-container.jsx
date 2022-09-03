@@ -21,10 +21,13 @@ const MusicContainer = () => {
           <div className={styles.music__container__info}>
             <h1>Music is the way of life</h1>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque delectus illo, error possimus minus minima excepturi
-              deserunt! Commodi beatae nam, ducimus quisquam consectetur illum
-              aperiam temporibus corporis atque, officia perspiciatis.
+              Beautiful music is the art of the prophets that can calm the
+              agitations of the soul; it is one of the most magnificent and
+              delightful presents God has given us.
+              <br />
+              <span className="float-left mt-2">
+                -<q className="italic ml-2">Martin Luther King</q>
+              </span>
             </p>
 
             <div className={styles.music__container__info__actions}>

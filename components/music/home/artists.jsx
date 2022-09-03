@@ -14,10 +14,10 @@ const Artists = () => {
           </div>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-            mollitia consequatur similique ullam molestias architecto dicta,
-            voluptate modi neque laudantium amet eum eveniet error. Quos tempora
-            obcaecati in voluptate et?
+            Music, at its essence, is what gives us memories. And the longer a
+            song has existed in our lives, the more memories we have of it. It
+            drives you. It wakes you up, it gets you pumping. And, at the end of
+            the day, the correct tune will chill you down.
           </p>
         </div>
       </div>
