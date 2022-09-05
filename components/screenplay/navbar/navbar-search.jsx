@@ -4,11 +4,9 @@ import { screenplayApiConfig } from "../../../api/apiConfig";
 import { screenplayAxiosClient } from "../../../api/axiosClient";
 import CloseButton from "../utils/close-button";
 import styles from "./navbar-search.module.scss";
-import useFetch from "../../../hooks/use-fetch";
 import { screenplayApiCalls } from "../../../api/requestsApi";
 import { Category } from "../../../models/screenplay";
 import Loading from "../../loading/loading";
-import ErrorContent from "../../error/error-content";
 import { useDebounce } from "use-debounce";
 
 const NavbarSearch = () => {

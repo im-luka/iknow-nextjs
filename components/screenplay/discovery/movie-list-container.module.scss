@@ -3,6 +3,14 @@
 .ml-container {
   margin-bottom: 3rem;
 
+  opacity: 0;
+  transition: opacity 2s ease;
+
+  &.active {
+    opacity: 1;
+    transition: opacity 2s ease;
+  }
+
   h2 {
     font-size: 2rem;
     font-weight: 400;
