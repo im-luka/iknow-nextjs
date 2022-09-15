@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import styles from "./category-container.module.scss";
 import years from "../../../data/years";
 import MovieListItem from "../discovery/movie-list-item";
-import { screenplayApiConfig } from "../../../api/apiConfig";
 import { screenplayAxiosClient } from "../../../api/axiosClient";
 import { screenplayApiCalls } from "../../../api/requestsApi";
 import { useRouter } from "next/router";
@@ -19,7 +18,6 @@ const CategoryContainer = () => {
 
   const searchRef = useRef(null);
   const yearRef = useRef(null);
-  const adultRef = useRef(null);
   const {
     query: { category },
   } = useRouter();
@@ -87,7 +85,6 @@ const CategoryContainer = () => {
     setLoadMore(false);
     const searchValue = searchRef.current.value;
     const yearValue = yearRef.current.value;
-    const includeAdultValue = adultRef.current.checked;
 
     const sendRequest = async () => {
       let request;
@@ -98,14 +95,12 @@ const CategoryContainer = () => {
               params: {
                 query: searchValue,
                 primary_release_year: +yearValue,
-                include_adult: includeAdultValue,
               },
             });
           } else {
             request = screenplayApiCalls.getDiscover(Category.Movie, {
               params: {
                 primary_release_year: +yearValue,
-                include_adult: includeAdultValue,
               },
             });
           }
@@ -115,7 +110,6 @@ const CategoryContainer = () => {
               params: {
                 query: searchValue,
                 first_air_date_year: +yearValue,
-                include_adult: includeAdultValue,
               },
             });
           } else {
@@ -217,11 +211,6 @@ const CategoryContainer = () => {
                 </option>
               ))}
             </select>
-          </div>
-
-          <div className={styles.grid__header__filter__adult}>
-            <input ref={adultRef} type="checkbox" id="adult" />
-            <label htmlFor="adult">Include adult {category}s</label>
           </div>
 
           <div className={styles.grid__header__filter__action}>
